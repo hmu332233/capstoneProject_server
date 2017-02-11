@@ -1,0 +1,2 @@
+class FcmController < ApplicationController
+end
