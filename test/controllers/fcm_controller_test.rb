@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class FcmControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get send" do
+    get :send
+    assert_response :success
+  end
+
 end
