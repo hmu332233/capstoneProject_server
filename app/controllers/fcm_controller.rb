@@ -20,3 +20,5 @@ class FcmController < ApplicationController
   end
   
 end
+
+#fcm 기본틀 완성 첫번째 merge
