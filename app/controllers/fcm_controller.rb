@@ -1,15 +1,6 @@
 
 class FcmController < ApplicationController
   
-  # def sendMessage
-    
-  #   fcm = FCMb.new
-    
-  #   puts "test"
-  #   fcm.sendMessage2
-    
-  # end
-  
   def sendMessage
       fcm = FCM.new(ENV['FCM_KEY'])
         
