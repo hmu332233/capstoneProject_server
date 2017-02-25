@@ -9,7 +9,8 @@ class RekognitionController < ApplicationController
      rekognitionHelper = RekognitionHelper.new
     # rekognitionHelper.createCollection( test_val )
     # rekognitionHelper.deleteCollection( test_val )
-    rekognitionHelper.addFace(test_val,params[:imageName],params[:imageId])
+    # rekognitionHelper.addFace(test_val,params[:imageName],params[:imageId])
+    rekognitionHelper.searchFace( test_val, params[:imageName] )
   end
   
   # POST /rekognition/collection
@@ -47,6 +48,13 @@ class RekognitionController < ApplicationController
 
   # GET /rekognition/search
   def searchFace
+    
+    collectionId = params[:collectionId]
+    imageName = params[:imageName]
+    
+    rekognitionHelper = RekognitionHelper.new
+    rekognitionHelper.searchFace( collectionId, imageName )
+  
   end
   
 end
