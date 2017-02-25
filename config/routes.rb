@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
 
+  #rekognition
+  get 'rekognition/createCollection'
+  get 'rekognition/deleteCollection'
+  get 'rekognition/addFace'
+  get 'rekognition/deleteFace'
+  get 'rekognition/searchFace'
+
+  #FCM
   get 'fcm/send' => 'fcm#sendMessage'
-  
   get 'fcm/group/:id' => 'fcm#sendMessageToGroup'
   get 'fcm/one/:id' => 'fcm#sendMessageToOne'
   get 'fcm/bell' => 'fcm#sendMessageToBell'
