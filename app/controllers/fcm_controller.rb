@@ -17,6 +17,7 @@ class FcmController < ApplicationController
     
     groupId = params[:id]
     #TODO : DB에서 id로 토픽을 뽑아 전송시키기
+    FcmSender.sendMessageToGroup( groupId , "땡땡 님이 도착했습니다!")
     
   end
   

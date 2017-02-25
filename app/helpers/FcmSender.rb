@@ -4,7 +4,7 @@ class FcmSender
         
         fcm = FCM.new(ENV['FCM_KEY'])
             
-        resp = fcm.send_with_notification_key("/topics/news",
+        resp = fcm.send_with_notification_key("#{to}",
             data: { msg: "#{message}"})
         
         puts resp
