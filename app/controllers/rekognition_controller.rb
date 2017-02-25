@@ -8,7 +8,8 @@ class RekognitionController < ApplicationController
     
      rekognitionHelper = RekognitionHelper.new
     # rekognitionHelper.createCollection( test_val )
-     rekognitionHelper.deleteCollection( test_val )
+    # rekognitionHelper.deleteCollection( test_val )
+    rekognitionHelper.addFace(test_val,params[:imageName],params[:imageId])
   end
   
   # POST /rekognition/collection
