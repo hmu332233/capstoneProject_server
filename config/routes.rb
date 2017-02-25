@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  
+  #test
+  get 'test/:test' => 'rekognition#test'
 
   #rekognition
   #collection
-  post 'rekognition/collection' => 'rekognition#createCollection'
-  delete 'rekognition/collection' => 'rekognition#deleteCollection'
+  post 'rekognition/collection/:collectionId' => 'rekognition#createCollection'
+  delete 'rekognition/collection/:collectionId' => 'rekognition#deleteCollection'
   #face
   post 'rekognition/face' => 'rekognition#addFace'
   delete 'rekognition/face' => 'rekognition#deleteFace'

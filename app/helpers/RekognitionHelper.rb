@@ -38,9 +38,7 @@ class RekognitionHelper
         })
         
         
-        resp.each do |label|
-          puts "#{label.name}-#{label.confidence.to_i}"
-        end
+        puts resp.to_h
     end
     
     def deleteCollection( collectionId )
@@ -49,6 +47,7 @@ class RekognitionHelper
           collection_id: "#{collectionId}", 
         })
 
+       puts resp.to_h
     end
     
     def addFace( collectionId ,imageName, imageId )
