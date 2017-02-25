@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   get 'fcm/send' => 'fcm#sendMessage'
+  
+  get 'fcm/group/:id' => 'fcm#sendMessageToGroup'
+  get 'fcm/one/:id' => 'fcm#sendMessageToOne'
+  get 'fcm/bell' => 'fcm#sendMessageToBell'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

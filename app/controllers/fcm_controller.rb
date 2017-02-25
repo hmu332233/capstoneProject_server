@@ -1,13 +1,34 @@
+require 'FcmSender'
 
 class FcmController < ApplicationController
   
   def sendMessage
-      fcm = FCM.new(ENV['FCM_KEY'])
-        
-      response = fcm.send_with_notification_key("/topics/news",
-            data: {message: "테스트입니다 근데 왜케 늦게와?",title: "이건 타이틀이얌!"})
-        
-      puts response
+    
+    resp = FcmSender.sendMessageToGroup("news","test")
+  
+    render json: {
+      status: resp[:status_code],
+      response: resp[:response]
+    }.to_json
+    
+  end
+  
+  def sendMessageToGroup
+    
+    groupId = params[:id]
+    #TODO : DB에서 id로 토픽을 뽑아 전송시키기
+    
+  end
+  
+  def sendMessageToOne 
+    
+    privateId = params[:id]
+    #TODO : DB에서 id로 개인코드를 뽑아 전송시키기
+    
+  end
+  
+  def sendMessageToBell
+    message = params[:message]
   end
   
 end
