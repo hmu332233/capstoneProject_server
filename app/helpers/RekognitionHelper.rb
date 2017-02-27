@@ -31,6 +31,15 @@ class RekognitionHelper
         return resp
     end
     
+    def listCollection
+      
+       resp = @client.list_collections({
+        })
+        
+        puts resp.to_h
+        return resp.to_h
+    end
+    
     def createCollection( collectionId )
       
         resp = @client.create_collection({
@@ -39,6 +48,7 @@ class RekognitionHelper
         
         
         puts resp.to_h
+        return resp.to_h
     end
     
     def deleteCollection( collectionId )
@@ -48,6 +58,17 @@ class RekognitionHelper
         })
 
        puts resp.to_h
+       return resp.to_h
+    end
+    
+    def listFaces(collectionId  )
+      
+      resp = @client.list_faces({
+        collection_id: "#{collectionId}"
+      })
+    
+      puts resp.to_h
+      return resp.to_h
     end
     
     def addFace( collectionId ,imageName, imageId )
@@ -66,7 +87,7 @@ class RekognitionHelper
         })
       
       puts resp.to_h
-      
+      return resp.to_h
     end
     
     def searchFace( collectionId, imageName )
@@ -87,6 +108,8 @@ class RekognitionHelper
         resp.to_h[:face_matches].each do |a|
           puts a
         end
+        
+        return resp.to_h
     end
     
     

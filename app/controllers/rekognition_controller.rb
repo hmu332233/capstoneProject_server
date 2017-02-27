@@ -10,7 +10,17 @@ class RekognitionController < ApplicationController
     # rekognitionHelper.createCollection( test_val )
     # rekognitionHelper.deleteCollection( test_val )
     # rekognitionHelper.addFace(test_val,params[:imageName],params[:imageId])
-    rekognitionHelper.searchFace( test_val, params[:imageName] )
+    # rekognitionHelper.searchFace( test_val, params[:imageName] )
+    redirect_to controller: 'rekognition', action: 'listFaces'
+  end
+  
+  # GET /rekognition/collections
+  def listCollections
+    
+    rekognitionHelper = RekognitionHelper.new
+    collections = rekognitionHelper.listCollection
+    
+    render :json => collections
   end
   
   # POST /rekognition/collection
@@ -29,6 +39,15 @@ class RekognitionController < ApplicationController
     
     rekognitionHelper = RekognitionHelper.new
     rekognitionHelper.deleteCollection( collectionId )
+  end
+  
+  # GET /rekognition/faces
+  def listFaces
+    
+    collectionId = params[:collectionId]
+    
+    rekognitionHelper = RekognitionHelper.new
+    rekognitionHelper.listFaces( collectionId )
   end
 
   # POST /rekognition/face
