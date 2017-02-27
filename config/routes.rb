@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   #rekognition
   #collection
   get 'rekognition/collections' => 'rekognition#listCollections'
-  post 'rekognition/collection/:collectionId' => 'rekognition#createCollection'
-  delete 'rekognition/collection/:collectionId' => 'rekognition#deleteCollection'
+  post 'rekognition/collection' => 'rekognition#createCollection'
+  delete 'rekognition/collection' => 'rekognition#deleteCollection'
   #face
-  get 'rekognition/faces/:collectionId' => 'rekognition#listFaces'
+  get 'rekognition/faces' => 'rekognition#listFaces'
   post 'rekognition/face' => 'rekognition#addFace'
   delete 'rekognition/face' => 'rekognition#deleteFace'
   #search
