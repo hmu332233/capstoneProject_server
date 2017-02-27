@@ -26,6 +26,7 @@ class RekognitionController < ApplicationController
     rekognitionHelper = RekognitionHelper.new
     collections = rekognitionHelper.listCollection
     
+    
     render :json => collections
   end
   
@@ -54,6 +55,8 @@ class RekognitionController < ApplicationController
     
     rekognitionHelper = RekognitionHelper.new
     rekognitionHelper.listFaces( collectionId )
+    
+    #TODO : face DB 리턴
   end
 
   # POST /rekognition/face
@@ -65,6 +68,9 @@ class RekognitionController < ApplicationController
     
     rekognitionHelper = RekognitionHelper.new
     rekognitionHelper.addFace(collectionId,imageName,imageId)
+    
+    #TODO : face DB에 정보 저장 id, 한글명
+    
   end
 
   # DELETE /rekognition/face
@@ -76,6 +82,8 @@ class RekognitionController < ApplicationController
     rekognitionHelper = RekognitionHelper.new
     rekognitionHelper.deleteFace(collectionId,imageId)
     
+    #TODO : face DB 정보 삭제
+    
   end
 
   # GET /rekognition/search
@@ -86,6 +94,8 @@ class RekognitionController < ApplicationController
     
     rekognitionHelper = RekognitionHelper.new
     rekognitionHelper.searchFace( collectionId, imageName )
+    
+    #TODO : 검색된 id로 face DB 검색 결과 리턴
   
   end
   
