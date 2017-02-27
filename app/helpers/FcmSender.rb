@@ -13,7 +13,7 @@ class FcmSender
     
     def self.sendMessageToGroup( groupId, message )
         
-        sendMessage( "/topics#{groupId}", message )
+        sendMessage( "/topics/#{groupId}", message )
     end
     
     def self.sendMessageToOne( userId, message )
