@@ -4,7 +4,7 @@ class FcmController < ApplicationController
   
   def sendMessage
     
-    resp = FcmSender.sendMessageToGroup("news","test")
+    resp = FcmSender.sendMessageToGroup("0","쯔왑쯔왑")
   
     render json: {
       status: resp[:status_code],

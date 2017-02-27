@@ -5,7 +5,7 @@ class RekognitionHelper
         credentials = Aws::Credentials.new(ENV['A_KEY'],ENV['S_KEY'])
         
         @client = Aws::Rekognition::Client.new(
-          region: 'us-west-2',
+          region: ENV['REGION'],
           credentials: credentials
         )
 
@@ -16,13 +16,13 @@ class RekognitionHelper
         resp = @client.compare_faces({
           source_image: {
             s3_object: {
-              bucket: "jbnucapstone2", 
+              bucket: ENV['BUCKET_NAME'], 
               name: "resource.jpg", 
             }, 
           }, 
           target_image: {
             s3_object: {
-              bucket: "jbnucapstone2", 
+              bucket: ENV['BUCKET_NAME'], 
               name: "target.jpg", 
             }, 
           }, 
@@ -80,7 +80,7 @@ class RekognitionHelper
           external_image_id: "#{imageId}", 
           image: {
             s3_object: {
-              bucket: "jbnucapstone2", 
+              bucket: ENV['BUCKET_NAME'], 
               name: "#{imageName}", 
             }, 
           }, 
@@ -111,7 +111,7 @@ class RekognitionHelper
           face_match_threshold: 95, 
           image: {
             s3_object: {
-              bucket: "jbnucapstone2", 
+              bucket: ENV['BUCKET_NAME'], 
               name: "#{imageName}", 
             }, 
           }, 
