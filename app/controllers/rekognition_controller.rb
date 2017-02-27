@@ -11,7 +11,13 @@ class RekognitionController < ApplicationController
     # rekognitionHelper.deleteCollection( test_val )
     # rekognitionHelper.addFace(test_val,params[:imageName],params[:imageId])
     # rekognitionHelper.searchFace( test_val, params[:imageName] )
-    redirect_to controller: 'rekognition', action: 'listFaces'
+    # redirect_to controller: 'rekognition', action: 'listFaces'
+    
+    collectionId = params[:collectionId]
+    imageId = params[:imageId]
+    
+    rekognitionHelper = RekognitionHelper.new
+    rekognitionHelper.deleteFace(test_val,imageId)
   end
   
   # GET /rekognition/collections
@@ -63,6 +69,13 @@ class RekognitionController < ApplicationController
 
   # DELETE /rekognition/face
   def deleteFace
+    
+    collectionId = params[:collectionId]
+    imageId = params[:imageId]
+    
+    rekognitionHelper = RekognitionHelper.new
+    rekognitionHelper.deleteFace(collectionId,imageId)
+    
   end
 
   # GET /rekognition/search

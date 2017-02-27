@@ -90,6 +90,20 @@ class RekognitionHelper
       return resp.to_h
     end
     
+    def deleteFace( collectionId, faceId )
+      
+      resp = @client.delete_faces({
+        collection_id: "#{collectionId}", 
+        face_ids: [
+          "#{faceId}"
+        ], 
+      })
+      
+      puts resp.to_h
+      return resp.to_h
+      
+    end
+    
     def searchFace( collectionId, imageName )
       
         resp = @client.search_faces_by_image({
